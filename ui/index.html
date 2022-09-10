@@ -7,4 +7,10 @@
   </head>
   <body>
     <h1>Hello Tauri!</h1>
+    <p>Rust response: <span id="hello"></span></p>
+    <script>
+      const invoke = window.__TAURI__.invoke;
+      invoke('greet', { name: 'World' })
+        .then((response) => document.getElementById('hello').textContent = response);
+    </script>
   </body>
